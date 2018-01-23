@@ -58,8 +58,10 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def find_by(*)
-    sql = "SELECT * FROM #{self.table_name} WHERE name = '#{*}'"
+  def find_by(attribute={})
+    attribute.each do |attr|
+      sql = "SELECT * FROM #{self.table_name} WHERE name = '#{*}'"
+    end
     DB[:conn].execute(sql)
   end
 end
